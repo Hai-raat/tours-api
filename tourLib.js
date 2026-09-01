@@ -53,8 +53,21 @@ const findById = (id) => {
   return tours.find((tour) => tour.id === Number(id)) || null;
 };
 
+const update = (id, data) => {
+  const tour = tours.find((tour) => tour.id === Number(id));
+
+  if (!tour) {
+    return null;
+  }
+
+  Object.assign(tour, data);
+
+  return tour;
+};
+
 module.exports = {
   addOne,
   getAll,
   findById,
+  update,
 };

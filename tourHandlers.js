@@ -23,8 +23,13 @@ const getTourById = (req, res) => {
 };
 
 const updateTour = (req, res) => {
-  const { id } = req.params;
-  res.json({ message: `Hello from updateTour with id: ${id}` });
+  const tour = Tour.update(req.params.id, req.body);
+
+  if (!tour) {
+    res.status(404).json({ message: "Tour not found" });
+  }
+
+  res.json(tour);
 };
 
 const deleteTour = (req, res) => {
