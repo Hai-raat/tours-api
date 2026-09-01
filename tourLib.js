@@ -16,6 +16,11 @@ const addOne = (name, info, image, price, location) => {
 
   return tour;
 };
+
+const getAll = () => {
+  return tours;
+};
+
 if (require.main === module) {
   const result = addOne(
     "7 Days Tour",
@@ -25,9 +30,27 @@ if (require.main === module) {
     "Helsinki, Finland",
   );
 
+  addOne(
+    "Paris in 7 Days",
+    "Explore Paris.",
+    "https://example.com/paris.jpg",
+    "1,995",
+    "Paris, France",
+  );
+
+  addOne(
+    "Helsinki Weekend",
+    "Discover Helsinki.",
+    "https://example.com/helsinki.jpg",
+    "795",
+    "Helsinki, Finland",
+  );
+
   console.log(result);
+  console.log(getAll());
 }
 
 module.exports = {
   addOne,
+  getAll,
 };
