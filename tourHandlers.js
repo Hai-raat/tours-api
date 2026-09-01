@@ -33,8 +33,13 @@ const updateTour = (req, res) => {
 };
 
 const deleteTour = (req, res) => {
-  const { id } = req.params;
-  res.json({ message: `Hello from deleteTour with id: ${id}` });
+  const deleted = Tour.delete(req.params.id);
+
+  if (!deleted) {
+    res.status(404).json({ message: "Tour not found" });
+  }
+
+  res.status(204).send();
 };
 
 module.exports = {
