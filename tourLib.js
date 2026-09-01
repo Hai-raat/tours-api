@@ -49,8 +49,12 @@ if (require.main === module) {
   console.log(result);
   console.log(getAll());
 }
+const findById = (id) => {
+  return tours.find((tour) => tour.id === Number(id)) || null;
+};
 
 module.exports = {
   addOne,
   getAll,
+  findById,
 };
